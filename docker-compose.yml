@@ -19,7 +19,11 @@ services:
           memory: 128M
 
   webui:
-    image: ghcr.io/open-webui/open-webui:main@sha256:74093dadc9c6aabc23987a74fd8c2fb8d995b1a5b22e83b0036fb9d6af590e8c
+    # Base runtime + frontend from Open WebUI image.
+    # All backend logic (auth, billing, credits, bots) is our custom code
+    # mounted from ./backend/, making this the Dr. Boz platform.
+    # To build a fully standalone image use: docker build -t drboz .
+    image: ghcr.io/open-webui/open-webui:main
     container_name: drboz-webui
     restart: unless-stopped
     volumes:
