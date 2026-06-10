@@ -96,6 +96,7 @@ from open_webui.routers import (
     subscriptions,
     credits,
     bot_auth,
+    billing,
     otp_auth,
     configs,
     auths,
@@ -1520,6 +1521,7 @@ app.include_router(automations.router, prefix='/api/v1/automations', tags=['auto
 app.include_router(calendar.router, prefix='/api/v1/calendars', tags=['calendars'])
 app.include_router(subscriptions.router, prefix='/api/v1/subscriptions', tags=['subscriptions'])
 app.include_router(credits.router, prefix='/api/v1/credits', tags=['credits'])
+app.include_router(billing.router, prefix='/api/v1/billing', tags=['billing'])
 app.include_router(account.router, prefix='/api/v1/account', tags=['account'])
 
 # SCIM 2.0 API for identity management
