@@ -19,10 +19,6 @@ services:
           memory: 128M
 
   webui:
-    # Base runtime + frontend from Open WebUI image.
-    # All backend logic (auth, billing, credits, bots) is our custom code
-    # mounted from ./backend/, making this the Dr. Boz platform.
-    # To build a fully standalone image use: docker build -t drboz .
     image: ghcr.io/open-webui/open-webui:main
     container_name: drboz-webui
     restart: unless-stopped
@@ -64,6 +60,18 @@ services:
       - BALE_SAFIR_CLIENT_SECRET=${BALE_SAFIR_CLIENT_SECRET:-}
       - ENABLE_LOGIN_FORM=${ENABLE_LOGIN_FORM:-true}
       - ENABLE_OAUTH_SIGNUP=${ENABLE_OAUTH_SIGNUP:-true}
+
+      # Proxy for outbound requests from webui container
+      - HTTP_PROXY=http://host.docker.internal:1081
+      - HTTPS_PROXY=http://host.docker.internal:1081
+      - ALL_PROXY=socks5h://host.docker.internal:1080
+      - http_proxy=http://host.docker.internal:1081
+      - https_proxy=http://host.docker.internal:1081
+      - all_proxy=socks5h://host.docker.internal:1080
+      - NO_PROXY=localhost,127.0.0.1,::1,redis,webui,drboz-redis,drboz-webui,bale-bot,drboz-bale-bot,nginx,drboz-nginx
+      - no_proxy=localhost,127.0.0.1,::1,redis,webui,drboz-redis,drboz-webui,bale-bot,drboz-bale-bot,nginx,drboz-nginx
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - drboz-net
     depends_on:
@@ -75,7 +83,16 @@ services:
           memory: 2G
 
   nginx:
-    build: ./nginx
+    build:
+      context: ./nginx
+      network: host
+      args:
+        HTTP_PROXY: http://127.0.0.1:1081
+        HTTPS_PROXY: http://127.0.0.1:1081
+        ALL_PROXY: socks5h://127.0.0.1:1080
+        http_proxy: http://127.0.0.1:1081
+        https_proxy: http://127.0.0.1:1081
+        all_proxy: socks5h://127.0.0.1:1080
     container_name: drboz-nginx
     restart: unless-stopped
     ports:
@@ -83,6 +100,8 @@ services:
     volumes:
       - ./ssl/live:/etc/nginx/ssl:ro
       - ./auth-app/dist:/usr/share/nginx/html/auth:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - drboz-net
     depends_on:
@@ -93,7 +112,16 @@ services:
           memory: 128M
 
   bale-bot:
-    build: ./bale-bot
+    build:
+      context: ./bale-bot
+      network: host
+      args:
+        HTTP_PROXY: http://127.0.0.1:1081
+        HTTPS_PROXY: http://127.0.0.1:1081
+        ALL_PROXY: socks5h://127.0.0.1:1080
+        http_proxy: http://127.0.0.1:1081
+        https_proxy: http://127.0.0.1:1081
+        all_proxy: socks5h://127.0.0.1:1080
     container_name: drboz-bale-bot
     restart: unless-stopped
     environment:
@@ -106,6 +134,18 @@ services:
       - CARD_NUMBER=${CARD_NUMBER:-6037-9975-9123-4567}
       - REDIS_URL=redis://drboz-redis:6379/1
       - USE_POLLING=true
+
+      # Proxy for outbound requests from bale-bot container
+      - HTTP_PROXY=http://host.docker.internal:1081
+      - HTTPS_PROXY=http://host.docker.internal:1081
+      - ALL_PROXY=socks5h://host.docker.internal:1080
+      - http_proxy=http://host.docker.internal:1081
+      - https_proxy=http://host.docker.internal:1081
+      - all_proxy=socks5h://host.docker.internal:1080
+      - NO_PROXY=localhost,127.0.0.1,::1,redis,webui,drboz-redis,drboz-webui,bale-bot,drboz-bale-bot,nginx,drboz-nginx
+      - no_proxy=localhost,127.0.0.1,::1,redis,webui,drboz-redis,drboz-webui,bale-bot,drboz-bale-bot,nginx,drboz-nginx
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - drboz-net
     depends_on:
