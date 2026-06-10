@@ -1,0 +1,14 @@
+{
+  "name": "drboz-bale-bot",
+  "version": "1.0.0",
+  "description": "Dr. Boz Bale bot — handles registration, plans, and payments (Bale wallet + card-to-card). Opens the Open WebUI mini app via inline button.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ioredis": "^5.4.1",
+    "dotenv": "^16.4.5"
+  }
+}

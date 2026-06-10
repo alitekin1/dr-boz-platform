@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "markdown-it": "^14.1.1",
+    "markdown-it-mathjax3": "^5.2.0",
+    "pptxgenjs": "^4.0.1",
+    "puppeteer": "^24.43.1"
+  }
+}

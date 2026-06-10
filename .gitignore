@@ -1,0 +1,41 @@
+# Secrets — never commit
+.env
+backend/.env
+pbozi/backend/.env
+*.secret
+*.key
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+backend/data/
+backend/static/
+pbozi/backend/venv/
+pbozi/backend/chroma_data/
+pbozi/backend/uploads/
+pbozi/backend/*.pdf
+pbozi/backend/*.png
+pbozi/backend/*.jpg
+pbozi/backend/*.xlsx
+pbozi/backend/*.pptx
+pbozi/backend/*.docx
+
+# Node
+node_modules/
+pbozi/frontend-v2/node_modules/
+
+# Docker volumes
+redis-data/
+ssl/live/*.pem
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+.webui_secret_key

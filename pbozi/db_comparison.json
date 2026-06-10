@@ -1,0 +1,4384 @@
+{
+  "source": {
+    "providers": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "projects": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "instructions",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "owner_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "share_token",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "shared_from_project_id",
+          "type": "INTEGER",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "user_preferences": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "username",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "preferred_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "current_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "current_project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "current_model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_admin",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "phone_number",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "account_status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "credit_balance_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_summary",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_prompt",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_profile_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_onboarding_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "custom_personalization",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "pending_action_payload",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_pro",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "total_charged_usd",
+          "type": "FLOAT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "system_prompts": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "auto_tool_guidance_enabled",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "tool_guidance_style",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "tool_guidance_template",
+          "type": "TEXT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "models": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "display_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "pricing_input",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "pricing_output",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "context_window",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "capabilities",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_default",
+          "type": "BOOLEAN",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "id"
+        }
+      ]
+    },
+    "documents": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "filename",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "file_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "file_path",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "chunk_count",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        }
+      ]
+    },
+    "chats": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "user_preference_id",
+          "type": "INTEGER",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "models",
+          "from": "model_id",
+          "to": "id"
+        },
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        }
+      ]
+    },
+    "messages": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        }
+      ]
+    },
+    "embedding_config": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "pricing_input",
+          "type": "FLOAT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "tools": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "display_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "kind",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "implementation_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "input_schema",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "is_builtin",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "implementation_config",
+          "type": "JSON",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "tool_bindings": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "tool_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "scope_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "scope_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_enabled",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "tools",
+          "from": "tool_id",
+          "to": "id"
+        }
+      ]
+    },
+    "tool_calls": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "tool_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "binding_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "provider_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "external_call_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "arguments",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "result",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "messages",
+          "from": "message_id",
+          "to": "id"
+        },
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        },
+        {
+          "table": "tool_bindings",
+          "from": "binding_id",
+          "to": "id"
+        },
+        {
+          "table": "tools",
+          "from": "tool_id",
+          "to": "id"
+        }
+      ]
+    },
+    "credit_ledger_entries": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "amount_delta_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "entry_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "reason",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "wallet_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "amount_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "balance_after_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "available_after_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "held_after_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "direction",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "admin_action_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "idempotency_key",
+          "type": "VARCHAR",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "feedback_entries": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "rating_value",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "note",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "reaction_raw_text",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "user_message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "assistant_message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "sample_reason",
+          "type": "VARCHAR",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "wallets": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "balance_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "available_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "held_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "allow_negative",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "usage_events": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "uploaded_file_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "operation_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "channel",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "provider_name_snapshot",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "model_name_snapshot",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "pricing_snapshot_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "request_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "request_payload_hash",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider_request_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "input_tokens",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "output_tokens",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "total_tokens",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "units",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "usage_source",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "estimated_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "actual_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "models",
+          "from": "model_id",
+          "to": "id"
+        },
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "id"
+        },
+        {
+          "table": "uploaded_files",
+          "from": "uploaded_file_id",
+          "to": "id"
+        },
+        {
+          "table": "messages",
+          "from": "message_id",
+          "to": "id"
+        },
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "model_pricing": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "provider_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "operation_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "input_per_1m_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "output_per_1m_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "unit_price_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "minimum_charge_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "effective_from",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "effective_to",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "models",
+          "from": "model_id",
+          "to": "id"
+        },
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "id"
+        }
+      ]
+    },
+    "admin_actions": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "admin_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "admin_telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "action_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "target_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "target_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "before_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "after_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "reason",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "admin_user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "uploaded_files": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_file_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "telegram_file_unique_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "filename",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "mime_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "file_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "size_bytes",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "storage_path",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "caption",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "processed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "usage_events",
+          "from": "usage_event_id",
+          "to": "id"
+        },
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        },
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "telegram_update_logs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "update_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "update_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "update_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "web_search_configs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "search_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "max_results",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "include_domains",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "exclude_domains",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "contents_options",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "transcription_configs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "pricing_input",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "pricing_output",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "telegram_groups": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "telegram_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "chat_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "trigger_phrases_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "min_active_members",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_by_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "app_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "created_by_user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "telegram_group_members": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "shared_billing_enabled",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "last_opt_in_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "last_opt_out_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        }
+      ]
+    },
+    "group_usage_events": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "triggered_by_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "request_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "telegram_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "operation_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "estimated_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "actual_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "split_member_count",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "triggered_by_user_id",
+          "to": "id"
+        },
+        {
+          "table": "usage_events",
+          "from": "usage_event_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        }
+      ]
+    },
+    "group_usage_shares": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "group_usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "ledger_entry_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "estimated_share_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "actual_share_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "credit_ledger_entries",
+          "from": "ledger_entry_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        },
+        {
+          "table": "group_usage_events",
+          "from": "group_usage_event_id",
+          "to": "id"
+        }
+      ]
+    },
+    "promo_codes": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "code",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "bonus_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "bonus_value_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "minimum_charge_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "max_redemptions_total",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "max_redemptions_per_user",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "expires_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "promo_code_redemptions": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "promo_code_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "charge_amount_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "bonus_amount_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "total_credit_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "credit_ledger_entry_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "credit_ledger_entries",
+          "from": "credit_ledger_entry_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        },
+        {
+          "table": "promo_codes",
+          "from": "promo_code_id",
+          "to": "id"
+        }
+      ]
+    },
+    "starter_credit_configs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "amount_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "welcome_message",
+          "type": "TEXT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "project_group_shares": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "shared_by_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "shared_by_user_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        },
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        }
+      ]
+    },
+    "skills": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "usage_rules",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "instructions",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "file_path",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "error_logs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "timestamp",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error_message",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "stack_trace",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "resolved",
+          "type": "BOOLEAN",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    }
+  },
+  "target": {
+    "providers": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "projects": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "instructions",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "owner_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "share_token",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "shared_from_project_id",
+          "type": "INTEGER",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "user_preferences": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "username",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "preferred_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "current_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "current_project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "current_model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_admin",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "phone_number",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "account_status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "credit_balance_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_summary",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_prompt",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_profile_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_onboarding_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "learning_preferences_completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "custom_personalization",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "pending_action_payload",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_pro",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "total_charged_usd",
+          "type": "FLOAT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "system_prompts": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "auto_tool_guidance_enabled",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "tool_guidance_style",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "tool_guidance_template",
+          "type": "TEXT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "models": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "display_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "pricing_input",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "pricing_output",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "context_window",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "capabilities",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_default",
+          "type": "BOOLEAN",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "id"
+        }
+      ]
+    },
+    "documents": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "filename",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "file_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "file_path",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "chunk_count",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        }
+      ]
+    },
+    "chats": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "user_preference_id",
+          "type": "INTEGER",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "models",
+          "from": "model_id",
+          "to": "id"
+        },
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        }
+      ]
+    },
+    "messages": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        }
+      ]
+    },
+    "embedding_config": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "pricing_input",
+          "type": "FLOAT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "tools": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "display_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "kind",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "implementation_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "input_schema",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "is_builtin",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "implementation_config",
+          "type": "JSON",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "tool_bindings": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "tool_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "scope_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "scope_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_enabled",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "tools",
+          "from": "tool_id",
+          "to": "id"
+        }
+      ]
+    },
+    "tool_calls": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "tool_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "binding_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "provider_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model_name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "external_call_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "arguments",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "result",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "messages",
+          "from": "message_id",
+          "to": "id"
+        },
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        },
+        {
+          "table": "tool_bindings",
+          "from": "binding_id",
+          "to": "id"
+        },
+        {
+          "table": "tools",
+          "from": "tool_id",
+          "to": "id"
+        }
+      ]
+    },
+    "credit_ledger_entries": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "amount_delta_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "entry_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "reason",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "wallet_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "amount_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "balance_after_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "available_after_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "held_after_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "direction",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "admin_action_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "idempotency_key",
+          "type": "VARCHAR",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "feedback_entries": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "rating_value",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "note",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "reaction_raw_text",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "user_message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "assistant_message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "sample_reason",
+          "type": "VARCHAR",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "wallets": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "balance_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "available_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "held_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "allow_negative",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "version",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "usage_events": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "uploaded_file_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "operation_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "channel",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "provider_name_snapshot",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "model_name_snapshot",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "pricing_snapshot_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "request_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "request_payload_hash",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider_request_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "input_tokens",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "output_tokens",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "total_tokens",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "units",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "usage_source",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "estimated_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "actual_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "models",
+          "from": "model_id",
+          "to": "id"
+        },
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "id"
+        },
+        {
+          "table": "uploaded_files",
+          "from": "uploaded_file_id",
+          "to": "id"
+        },
+        {
+          "table": "messages",
+          "from": "message_id",
+          "to": "id"
+        },
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "model_pricing": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "provider_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "model_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "operation_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "currency",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "input_per_1m_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "output_per_1m_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "unit_price_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "minimum_charge_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "effective_from",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "effective_to",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "models",
+          "from": "model_id",
+          "to": "id"
+        },
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "id"
+        }
+      ]
+    },
+    "admin_actions": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "admin_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "admin_telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "action_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "target_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "target_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "before_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "after_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "reason",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "admin_user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "uploaded_files": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_file_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "telegram_file_unique_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "filename",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "mime_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "file_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "size_bytes",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "storage_path",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "caption",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "processed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "usage_events",
+          "from": "usage_event_id",
+          "to": "id"
+        },
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        },
+        {
+          "table": "chats",
+          "from": "chat_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "telegram_update_logs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "update_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "update_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "update_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "web_search_configs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "search_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "max_results",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "include_domains",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "exclude_domains",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "contents_options",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "transcription_configs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "provider",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "model",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "base_url",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "pricing_input",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "pricing_output",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "telegram_groups": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "telegram_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "chat_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "trigger_phrases_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "min_active_members",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_by_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "app_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "created_by_user_id",
+          "to": "id"
+        }
+      ]
+    },
+    "telegram_group_members": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "shared_billing_enabled",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "last_opt_in_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "last_opt_out_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        }
+      ]
+    },
+    "group_usage_events": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "triggered_by_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "request_id",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "telegram_chat_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "telegram_message_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "operation_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "estimated_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "actual_cost_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "split_member_count",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "triggered_by_user_id",
+          "to": "id"
+        },
+        {
+          "table": "usage_events",
+          "from": "usage_event_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        }
+      ]
+    },
+    "group_usage_shares": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "group_usage_event_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "ledger_entry_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "estimated_share_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "actual_share_minor",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "metadata_json",
+          "type": "JSON",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "completed_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "credit_ledger_entries",
+          "from": "ledger_entry_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        },
+        {
+          "table": "group_usage_events",
+          "from": "group_usage_event_id",
+          "to": "id"
+        }
+      ]
+    },
+    "promo_codes": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "code",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "bonus_type",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "bonus_value_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "minimum_charge_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "max_redemptions_total",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "max_redemptions_per_user",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "expires_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "promo_code_redemptions": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "promo_code_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "charge_amount_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "bonus_amount_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "total_credit_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "credit_ledger_entry_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "credit_ledger_entries",
+          "from": "credit_ledger_entry_id",
+          "to": "id"
+        },
+        {
+          "table": "user_preferences",
+          "from": "user_id",
+          "to": "id"
+        },
+        {
+          "table": "promo_codes",
+          "from": "promo_code_id",
+          "to": "id"
+        }
+      ]
+    },
+    "starter_credit_configs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "amount_usd",
+          "type": "FLOAT",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "welcome_message",
+          "type": "TEXT",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "project_group_shares": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "group_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "shared_by_user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "user_preferences",
+          "from": "shared_by_user_id",
+          "to": "id"
+        },
+        {
+          "table": "telegram_groups",
+          "from": "group_id",
+          "to": "id"
+        },
+        {
+          "table": "projects",
+          "from": "project_id",
+          "to": "id"
+        }
+      ]
+    },
+    "skills": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "usage_rules",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "instructions",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "file_path",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "pk": 0
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "updated_at",
+          "type": "DATETIME",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    },
+    "error_logs": {
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "pk": 1
+        },
+        {
+          "name": "timestamp",
+          "type": "DATETIME",
+          "pk": 0
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR",
+          "pk": 0
+        },
+        {
+          "name": "error_message",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "stack_trace",
+          "type": "TEXT",
+          "pk": 0
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER",
+          "pk": 0
+        },
+        {
+          "name": "resolved",
+          "type": "BOOLEAN",
+          "pk": 0
+        }
+      ],
+      "foreign_keys": []
+    }
+  }
+}

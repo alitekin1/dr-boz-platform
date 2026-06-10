@@ -1,0 +1,119 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: drboz-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --save 900 1 --save 300 10 --save 60 10000
+    volumes:
+      - ./redis-data:/data
+    networks:
+      - drboz-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  webui:
+    image: ghcr.io/open-webui/open-webui:main@sha256:74093dadc9c6aabc23987a74fd8c2fb8d995b1a5b22e83b0036fb9d6af590e8c
+    container_name: drboz-webui
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app/backend
+    environment:
+      - REDIS_URL=redis://drboz-redis:6379/0
+      - PORT=8080
+      - WEBUI_NAME=Dr. Boz
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY:-}
+      - USE_OLLAMA_DOCKER=false
+      - OLLAMA_BASE_URL=/ollama
+      - USE_EMBEDDING_MODEL_DOCKER=sentence-transformers/all-MiniLM-L6-v2
+      - RAG_EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - USE_AUXILIARY_EMBEDDING_MODEL_DOCKER=TaylorAI/bge-micro-v2
+      - AUXILIARY_EMBEDDING_MODEL=TaylorAI/bge-micro-v2
+      - USE_RERANKING_MODEL_DOCKER=
+      - RAG_RERANKING_MODEL=
+      - WHISPER_MODEL=${WHISPER_MODEL:-base}
+      - SENTENCE_TRANSFORMERS_HOME=/app/backend/data/cache/embedding/models
+      - HF_HOME=/app/backend/data/cache/embedding/models
+      - TIKTOKEN_CACHE_DIR=/app/backend/data/cache/tiktoken
+      - TIKTOKEN_ENCODING_NAME=cl100k_base
+      - DO_NOT_TRACK=true
+      - ANONYMIZED_TELEMETRY=false
+      - SCARF_NO_ANALYTICS=true
+      - PYTHONUNBUFFERED=1
+      - UV_LINK_MODE=copy
+      - ENV=prod
+      - DOCKER=true
+      - USE_SLIM_DOCKER=false
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_BOT_USERNAME=${TELEGRAM_BOT_USERNAME:-drboz_bot}
+      - BALE_BOT_TOKEN=${BALE_BOT_TOKEN:-}
+      - BALE_BOT_USERNAME=${BALE_BOT_USERNAME:-drboz_bale}
+      - BOT_SHARED_SECRET=${BOT_SHARED_SECRET}
+      - BOT_ADMIN_IDS=${BOT_ADMIN_IDS:-}
+      - BALE_SAFIR_CLIENT_ID=${BALE_SAFIR_CLIENT_ID:-}
+      - BALE_SAFIR_CLIENT_SECRET=${BALE_SAFIR_CLIENT_SECRET:-}
+      - ENABLE_LOGIN_FORM=${ENABLE_LOGIN_FORM:-true}
+      - ENABLE_OAUTH_SIGNUP=${ENABLE_OAUTH_SIGNUP:-true}
+    networks:
+      - drboz-net
+    depends_on:
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  nginx:
+    build: ./nginx
+    container_name: drboz-nginx
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:3000:3000"
+    volumes:
+      - ./ssl/live:/etc/nginx/ssl:ro
+      - ./auth-app/dist:/usr/share/nginx/html/auth:ro
+    networks:
+      - drboz-net
+    depends_on:
+      - webui
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  bale-bot:
+    build: ./bale-bot
+    container_name: drboz-bale-bot
+    restart: unless-stopped
+    environment:
+      - BALE_BOT_TOKEN=${BALE_BOT_TOKEN}
+      - BALE_BOT_USERNAME=${BALE_BOT_USERNAME:-drboz_bale}
+      - BOT_ADMIN_IDS=${BOT_ADMIN_IDS}
+      - BACKEND_URL=http://drboz-webui:8080
+      - BOT_SHARED_SECRET=${BOT_SHARED_SECRET}
+      - CARD_HOLDER_NAME=${CARD_HOLDER_NAME:-بزرگ‌نیا}
+      - CARD_NUMBER=${CARD_NUMBER:-6037-9975-9123-4567}
+      - REDIS_URL=redis://drboz-redis:6379/1
+      - USE_POLLING=true
+    networks:
+      - drboz-net
+    depends_on:
+      redis:
+        condition: service_healthy
+      webui:
+        condition: service_started
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+networks:
+  drboz-net:
+    driver: bridge
